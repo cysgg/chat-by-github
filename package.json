@@ -1,0 +1,97 @@
+{
+  "name": "chat-by-github",
+  "displayName": "chat-by-github",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:chat-by-github",
+    "onView:chatArea"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "chat-by-github",
+          "title": "chat by github",
+          "icon": "assets/img/chat.png"
+        }
+      ]
+    },
+    "views": {
+      "chat-by-github": [
+        {
+          "id": "chatArea",
+          "name": "chat area",
+          "icon": "assets/img/chat.png",
+          "contextualTitle": "chat area"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "chatArea.refreshEntry",
+          "when": "view == chatArea",
+          "group": "navigation"
+        },
+        {
+          "command": "chatArea.loginEntry",
+          "when": "view == chatArea",
+          "group": "navigation"
+        },
+        {
+          "command": "chatArea.addEntry",
+          "when": "view == chatArea"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "chatArea.refreshEntry",
+        "title": "Refresh",
+        "icon": "assets/img/refresh.svg"
+      },
+      {
+        "command": "chatArea.loginEntry",
+        "title": "login",
+        "icon": "assets/img/login.svg"
+      },
+      {
+        "command": "chatArea.addEntry",
+        "title": "Add"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.1",
+    "typescript": "^4.4.3",
+    "@vscode/test-electron": "^1.6.2"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.4",
+    "simple-git": "^2.45.1"
+  }
+}
