@@ -47,6 +47,11 @@
           "group": "navigation"
         },
         {
+          "command": "chatArea.fetchEntry",
+          "when": "view == chatArea",
+          "group": "navigation"
+        },
+        {
           "command": "chatArea.addEntry",
           "when": "view == chatArea"
         }
@@ -62,6 +67,11 @@
         "command": "chatArea.loginEntry",
         "title": "login",
         "icon": "assets/img/login.svg"
+      },
+      {
+        "command": "chatArea.fetchEntry",
+        "title": "fetch",
+        "icon": "assets/img/download.svg"
       },
       {
         "command": "chatArea.addEntry",

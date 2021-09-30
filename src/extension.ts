@@ -17,9 +17,12 @@ export function activate(context: vscode.ExtensionContext) {
   vscode.commands.registerCommand("chatArea.refreshEntry", () =>
     chatArea.refresh()
   );
-
-  vscode.commands.registerCommand("chatArea.loginEntry", () => userManage.loginEntry());
-
+  vscode.commands.registerCommand("chatArea.loginEntry", () =>
+    userManage.loginEntry()
+  );
+  vscode.commands.registerCommand("chatArea.fetchEntry", () =>
+    userManage.fetchEntry()
+  );
   vscode.commands.registerCommand("chatArea.addEntry", () =>
     vscode.window.showInformationMessage(`Successfully called add entry.`)
   );
